@@ -1,0 +1,59 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Part 1: Check if a number is prime or non-prime
+        Console.Write("Enter a number to check if it's prime or non-prime: ");
+        int numberToCheck = int.Parse(Console.ReadLine());
+
+        if (IsPrime(numberToCheck))
+        {
+            Console.WriteLine($"{numberToCheck} is prime.");
+        }
+        else
+        {
+            Console.WriteLine($"{numberToCheck} is non-prime.");
+        }
+
+        Console.WriteLine();
+
+        // Part 2: Print a square pattern based on input integer N
+        Console.Write("Enter an integer N to print a square pattern: ");
+        int n = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Square Pattern:");
+        PrintSquarePattern(n);
+    }
+
+    static bool IsPrime(int n)
+    {
+        if (n <= 1)
+        {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.Sqrt(n); i++)
+        {
+            if (n % i == 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    static void PrintSquarePattern(int n)
+    {
+        for (int i = 1; i <= n; i++)
+        {
+            for (int j = 1; j <= n; j++)
+            {
+                Console.Write("* ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
